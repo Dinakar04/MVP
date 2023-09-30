@@ -54,7 +54,6 @@ public class S3Controller {
     @Autowired
     private S3Service service;
     
-
    
     @Autowired
     FileMetaDataRepository fileMetadataRepository;
@@ -72,11 +71,7 @@ public class S3Controller {
         return service.getAllModel();
     }
     
-    
 
-    
-    
-    
 //    
 //   @GetMapping("/all/db/models/dto")
 //    public List<FileDetailsDTO> getAllDtos(){
@@ -91,17 +86,12 @@ public class S3Controller {
 //   }
     
    
-   
-
     
    @GetMapping("/get/{filename}")
    public Optional<FileMetadata> gtefileByname(@PathVariable String filename){
     return service.getByName(filename);
    }
 
-   
-   
-   
    
 //   @PostMapping("/all/db/models/video")
 //   public ResponseEntity<String> uploadVideo(@RequestParam("filename") String filename,
@@ -133,6 +123,7 @@ public class S3Controller {
 // new controller for posting models and also video in s3 
    
    
+
   @PostMapping("/all/db/models/video")
   public ResponseEntity<String> uploadAllinS3(@RequestParam("filename") String filename,@RequestParam("apkFile") MultipartFile apkFile,
 			@RequestParam("description") String description, @RequestParam("price") Double price,
@@ -159,6 +150,7 @@ public class S3Controller {
 		  s3Links.add(videoLink);
 		  s3Links.add(imgiLink);
 		  s3Links.add(imgiiLink);
+          
 		  URL objectKeyAPK = new URL(s3Link);
 		  URL  objectKeyVidURL  = new URL(videoLink) ;
 		  URL  objectKeyimgiURL  = new URL(imgiLink) ;

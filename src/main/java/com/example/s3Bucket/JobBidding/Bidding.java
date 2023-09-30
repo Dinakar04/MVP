@@ -3,6 +3,7 @@ package com.example.s3Bucket.JobBidding;
 import com.example.s3Bucket.Creator.CreatorDev;
 import com.example.s3Bucket.Job.Job;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class Bidding {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long bidId;
     private Long jobid;
+    private Long creatorId;
+    @Column(length = 500)
     private String coverLetter;
     private int hours;
     private Double fee;
@@ -51,10 +54,19 @@ public class Bidding {
     // }
 
     
+    
 
 
     public String getCoverLetter() {
         return coverLetter;
+    }
+
+    public Long getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
     }
 
     public Long getJobid() {
@@ -158,13 +170,34 @@ public class Bidding {
 
 
     
-   
-
     public Bidding() {
+
     }
+
+
+
+    public Bidding(Long jobid, Long creatorId, String coverLetter, int hours, Double fee, String workType,
+            String level1, String level2, String level3, String bidStatus, CreatorDev creatorDev, Job job) {
+     
+        this.jobid = jobid;
+        this.creatorId = creatorId;
+        this.coverLetter = coverLetter;
+        this.hours = hours;
+        this.fee = fee;
+        this.workType = workType;
+        this.level1 = level1;
+        this.level2 = level2;
+        this.level3 = level3;
+        this.bidStatus = bidStatus;
+        this.creatorDev = creatorDev;
+        this.job = job;
+
+    }
+
 
     public Bidding(Long jobid, String coverLetter, int hours, Double fee, String workType, String level1, String level2,
             String level3, String bidStatus, CreatorDev creatorDev, Job job) {
+
         this.jobid = jobid;
         this.coverLetter = coverLetter;
         this.hours = hours;
@@ -176,10 +209,13 @@ public class Bidding {
         this.bidStatus = bidStatus;
         this.creatorDev = creatorDev;
         this.job = job;
+
     }
+
 
     public Bidding(Long jobid, String coverLetter, int hours, Double fee, String workType, String level1, String level2,
             String level3, String bidStatus) {
+
         this.jobid = jobid;
         this.coverLetter = coverLetter;
         this.hours = hours;
@@ -189,6 +225,7 @@ public class Bidding {
         this.level2 = level2;
         this.level3 = level3;
         this.bidStatus = bidStatus;
+        
     }
 
     
