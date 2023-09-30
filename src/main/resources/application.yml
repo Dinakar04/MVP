@@ -1,0 +1,13 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA4FJNNO6AZGSPZFZV
+      secret-key: 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
+    region:
+      static: ap-south-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: xeroverse
